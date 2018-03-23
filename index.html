@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+	<title>Селькин Антон Олегович</title>
+    <script type="text/javascript"> 
+function sub(){ 
+sendMail();
+if(document.getElementById('rf').checked == true)
+{
+	if(confirm("Уважаемая " +document.getElementById('fname').value+ " , вы действительно хотите отправить данные?"))
+	{
+	document.getElementById("UserEnter").submit();
+	}
+	else
+	{
+	document.UserEnter.reset();
+	}  
+}
+else if (document.getElementById('rm').checked == true)
+{
+	if(confirm("Уважаемый "+document.getElementById('fname').value+" , вы действительно хотите отправить данные?"))
+	{
+	document.getElementById("UserEnter").submit();
+	}
+	else{
+	document.UserEnter.reset();
+	}  
+}
+}
+function sendMail() { 
+var pas1= document.getElementById("pass").value; 
+var pas2= document.getElementById("ch_pass").value; 
+console.log(pas1,pas2); 
+if(pas1!=pas2){ 
+alert("Пароли не совпадают!"); 
+} 
+} 
+</script> 
+</head>
+<body>
+  <form name="UserEnter" id="UserEnter" action="name@server.domen" method="POST">
+         <fieldset>
+            <label for="fname">Имя:</label>
+            <input type="text" name="fname" id="fname" placeholder="Ваше имя" pattern="^[а-яА-Я]+$" required ><span></span><br>
+            <label for="lname">Фамилия</label>
+            <input type="text" name="lname" id="lname" placeholder="Ваша фамилия" pattern="^[а-яА-Я]+$" required><span></span><br>
+            <label for="city">Город</label>
+            <select>
+            	<option>Россия, Москва</option>
+            	<option>Баларусь, Минск</option>
+            </select>
+            <span></span><br>
+            <label for="adress">Адрес</label>
+            <input type="adress" name="adress" id="adress" placeholder="Ваш домашний адрес" required><span></span><br>
+            <label for="postind"> Почтовый индекс</label>
+            <input type="postind" name="postind" id="postind" pattern="[0-9]{6}" placeholder="Ваш почтовый индекс" required><span></span><br>
+            <label for="phone"> Телефон</label>
+            <select>
+            	<option>+7(900)556-575-676</option>
+            	<option>+8(700)556-575-676</option>
+            </select><span></span><br>
+            <label for="date"> Дата рождения</label>
+            <input type="date" name="date" id="date" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" placeholder="Ваш дата рождения" required><span></span><br>
+            <label for="Sex"> Пол</label>
+            <input style =" width: 10px" type="radio" name="s" id = "rm"  value ="m" required/>Мужской
+            <input style =" width: 10px" type="radio" name="s" id = "rf"  value ="f" required />Женский
+            <span style ="padding-left: 150px "></span><br>
+            <label for="mail"> E-mail</label>
+            <input type="mail" name="mail" id="mail" pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$" placeholder="Ваша электонная почта" required><span></span><br>
+             <input style =" width: 70px" type="checkbox" name="s2" value="m" required/>Использовать E-mail в качестве логина<br>
+             <label for="pass">Пароль</label>
+            <input type="password" name="pass" id="pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" placeholder="Ваш пароль" required><span></span><br>
+             <label for="ch_pass">Подтвердите пароль</label>
+            <input type="password" name="ch_pass" id="ch_pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" placeholder="Ваш пароль" required><span></span><br>
+            <label for="secq">Секретный вопрос</label>
+            <select>
+            	<option>Кличка питомца</option>
+            	<option>Любимый фильм</option>
+            </select>
+            <span></span><br>
+            <label for="ans">Ответ на секретный вопрос</label>
+            <input type="ans" name="ans" id="ans" required><span></span><br>
+            <label for="time">Часовой пояс</label>
+            <select>
+            	<option>GMT +03:00</option>
+            	<option>GMT +04:00</option>
+            </select>
+            <span></span><br>
+            <input style =" width: 70px" type="checkbox" name="s1" value="m" required/>Получать уведомления о проведении операций<br>
+            <input style =" width: 70px" type="checkbox" name="s1" value="m" required/>Получать новсти<br>
+            <input style =" width: 70px" type="checkbox" name="s1" value="m" required/>Я принимаю условия сервиса<br>
+         </fieldset>
+		 	 <input type="reset"  VALUE="reset">
+      </form>
+      <div class="buttons">
+         <button onclick="sub()" type="button" class="button" name="button">Регистрация</button>
+	
+      </div>
+</body>
+</html>
